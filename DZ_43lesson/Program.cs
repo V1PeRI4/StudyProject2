@@ -17,6 +17,7 @@ namespace DZ_43lesson
             Line();
             Line();
 
+
             int massLenght;
             while (true)
             {
