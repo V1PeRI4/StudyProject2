@@ -13,11 +13,6 @@ namespace DZ_43lesson
             /* Console.WriteLine("Суть программы: реализовать метод изменяющий кол-во элементов массива " +
                 "\n(метод должен иметь возможность увеличить или уменьшиить кол-во элементов массива)"); */
 
-            string t1 = Console.ReadLine();
-            DateTime time = DateTime.Parse(t1);
-            Console.WriteLine(time);
-            
-
             Line();
             Line();
             Line();
