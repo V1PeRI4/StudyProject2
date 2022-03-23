@@ -11,7 +11,7 @@ namespace DZ_43lesson
 
         /// <summary>
         /// Изменение длинны массива
-        /// </summary
+        /// </summary>
         public static void Resize(ref int[] myArr)
         {
             Console.WriteLine(". Изменение длинны массива\n");
