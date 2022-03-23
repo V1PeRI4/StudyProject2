@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArrChange.cs" />
     <Compile Include="ArrCreate.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />

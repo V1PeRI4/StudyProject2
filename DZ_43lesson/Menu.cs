@@ -9,27 +9,25 @@ namespace DZ_43lesson
     static class Menu
     {
 
-        private static void PrintMenu()
+        ////////////////////////////////////////////////////////////////////////////////
+        //ГЛАВНОЕ МЕНЮ
+        ////////////////////////////////////////////////////////////////////////////////
+        private static void PrintMainMenu()
         {
-            Console.WriteLine("\nВыберите действие:" +
-                "\n1.\tЗаполнить массив" +
-                "\n2.\tВывести массив в консоль" +
-                "\n3.\tАвтоматическое заполнение массива и вывод его в консоль" +
-                "\n4.\tИзменить размер существующего массива" +
-                "\n5.\tДобавить элемент в массив" +
-                "\n6.\tУдалить элемент массива" +
+            Console.Write("\t\t\tГЛАВНОЕ МЕНЮ"); 
+
+            Console.WriteLine("\nВыберите подменю:" +
+                "\n1.\tСоздание массива" +
+                "\n2.\tИзменение массива" +
                 "\n{Escape}.Выход");
         }
-
         public static void MainMenu(ref int[] Arr)
         {
-            int countIndex = 0;
-
-            Console.Write("\n\n{Enter}. Вывести меню в консоль\n");
+            PrintMainMenu(); //Вывод пунктов меню
 
             Separators.Line();
 
-            ConsoleKey consoleKey = Console.ReadKey().Key;
+            ConsoleKey consoleKey = Console.ReadKey().Key; //считывание кнопки для свича
 
             bool working = true;
             while (working)
@@ -38,44 +36,19 @@ namespace DZ_43lesson
                 {
                     case ConsoleKey.D1:
                         {
-                            Console.WriteLine(". Ввод массива\n"); //ввод осуществлен рекурсией, вывод этой строки находится тут
-                            ArrCreate.EnterMass(ref Arr, countIndex);
-                            MainMenu(ref Arr);
+                            
+                            CreateArrMenu(ref Arr);
                             break;
                         }
                     case ConsoleKey.D2:
                         {
-                            ArrCreate.PrintMass(Arr);
-                            MainMenu(ref Arr);
+                            
+                            ChangeArrMenu(ref Arr);
                             break;
                         }
-                    case ConsoleKey.D3:
-                        {
-                            ArrCreate.AutoEnterMass(ref Arr);
-                            MainMenu(ref Arr);
-                            break;
-                        }
-                    //case ConsoleKey.D4:
-                    //    {
-                    //        Resize(ref Arr);
-                    //        MainMenu(ref Arr);
-                    //        break;
-                    //    }
-                    //case ConsoleKey.D5:
-                    //    {
-                    //        Insert(ref Arr);
-                    //        MainMenu(ref Arr);
-                    //        break;
-                    //    }
-                    //case ConsoleKey.D6:
-                    //    {
-                    //        RemoveEl(ref Arr);
-                    //        MainMenu(ref Arr);
-                    //        break;
-                    //    }
                     case ConsoleKey.Enter:
                         {
-                            PrintMenu();
+                            PrintMainMenu();
                             MainMenu(ref Arr);
                             break;
                         }
@@ -87,18 +60,152 @@ namespace DZ_43lesson
                         }
                     default:
                         {
+                            Console.Clear();
+                            Separators.Line();
                             Console.WriteLine("!!!! Error: Неизвестная команда");
+                            Separators.Line();
+
                             MainMenu(ref Arr);
                             break;
                         }
-                }   //end of switch
-            }   //end of for
+                }
+            }
+
         }
 
 
 
-       
+        ////////////////////////////////////////////////////////////////////////////////
+        //МЕНЮ СОЗДАНИЯ МАССИВА
+        ////////////////////////////////////////////////////////////////////////////////
+        private static void PrintCreateArrMenu()
+        {
+            Console.WriteLine(".\t\tМЕНЮ СОЗДАНИЯ МАССИВА");
+            Console.WriteLine("\nВыберите действие:" +
+                "\n1.\tВвод массива" +
+                "\n2.\tВывести массив" +
+                "\n3.\tАвтоматическое заполнение массива и вывод его в консоль" +
+                "\n{Escape}.Выход в главное меню");
+        }
+        public static void CreateArrMenu(ref int[] Arr)
+        {
+            int countIndex = 0; //добавление из-за рекурсивного ввода
 
+            PrintCreateArrMenu(); //Вывод пунктов меню
+
+            Separators.Line();
+
+            ConsoleKey consoleKey = Console.ReadKey().Key; //Считывание кнопки для свича
+
+            switch (consoleKey)
+            {
+                case ConsoleKey.D1:
+                    {
+                        Console.WriteLine(". Ввод массива\n"); //ввод осуществлен рекурсией, вывод этой строки находится тут
+                        ArrCreate.EnterMass(ref Arr, countIndex);
+                        Separators.PressEnterToContinue();
+                        MainMenu(ref Arr);
+                        break;
+                    }
+                case ConsoleKey.D2:
+                    {
+                        ArrCreate.PrintMass(Arr);
+                        Separators.PressEnterToContinue();
+                        MainMenu(ref Arr);
+                        break;
+                    }
+                case ConsoleKey.D3:
+                    {
+                        ArrCreate.AutoEnterMass(ref Arr);
+                        Separators.PressEnterToContinue();
+                        MainMenu(ref Arr);
+                        break;
+                    }
+                case ConsoleKey.Escape:
+                    {
+                        Console.Clear();
+                        MainMenu(ref Arr);
+                        break;
+                    }
+                default:
+                    {
+                        Console.Clear();
+                        Console.WriteLine("!!!! Error: Неизвестная команда");
+                        MainMenu(ref Arr);
+                        break;
+                    }
+            }   
+            
+        }
+
+
+
+        ////////////////////////////////////////////////////////////////////////////////
+        //МЕНЮ ИЗМЕНЕНИЯ МАССИВА
+        ////////////////////////////////////////////////////////////////////////////////
+        private static void PrintChangeArrMenu()
+        {
+            Console.WriteLine(".\t\tМЕНЮ ИЗМЕНЕНИЯ МАССИВА");
+            Console.WriteLine("\nВыберите подменю:" +
+                "\n1.\tИзменение длинны массива" +
+                "\n2.\tДобавить элемент в массив" +
+                "\n3.\tУдалить элемент из массива" +
+                "\n{Escape}.Выход");
+        }
+        public static void ChangeArrMenu(ref int[] Arr)
+        {
+            PrintChangeArrMenu(); //Вывод пунктов меню
+
+            Separators.Line();
+
+            ConsoleKey consoleKey = Console.ReadKey().Key; //Считывание кнопки для свича
+
+            switch (consoleKey)
+            {
+                case ConsoleKey.D1:
+                    {
+                        ArrChange.Resize(ref Arr);
+                        Separators.PressEnterToContinue();
+                        MainMenu(ref Arr);
+                        break;
+                    }
+                case ConsoleKey.D2:
+                    {
+                        ArrChange.Insert(ref Arr);
+                        Separators.PressEnterToContinue();
+                        MainMenu(ref Arr);
+                        break;
+                    }
+                case ConsoleKey.D3:
+                    {
+                        ArrChange.RemoveEl(ref Arr);
+                        Separators.PressEnterToContinue();
+                        MainMenu(ref Arr);
+                        break;
+                    }
+                case ConsoleKey.Escape:
+                    {
+                        Console.Clear();
+                        MainMenu(ref Arr);
+                        break;
+                    }
+                default:
+                    {
+                        Console.Clear();
+                        Console.WriteLine("!!!! Error: Неизвестная команда");
+                        MainMenu(ref Arr);
+                        break;
+                    }
+            } 
+
+        }
+
+        
+
+        ////////////////////////////////////
+
+        
+       
 
 
     }

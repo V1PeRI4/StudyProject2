@@ -9,6 +9,10 @@ namespace DZ_43lesson
     static class ArrCreate
     {
 
+        /// <summary>
+        /// Ввод длинны массива.
+        /// </summary>
+        /// Метод используется в самом начале программы
         public static int EnterMasslenght()
         {
             int massLenght= 0;
@@ -19,10 +23,12 @@ namespace DZ_43lesson
                 {
                     Console.Write("\nВведите длину массива: ");
                     massLenght = int.Parse(Console.ReadLine());
+                    Console.Clear();
                     return massLenght;
                 }
                 catch
                 {
+                    Console.Clear();
                     Console.WriteLine("\tНеверный формат!!! Введите еще раз");
                 }
             }
@@ -33,8 +39,7 @@ namespace DZ_43lesson
         /// <summary>
         /// 1. Ввод массива
         /// </summary>
-
-        // Реализован ввод массива с помощью рекурсии!
+        /// Реализован ввод массива с помощью рекурсии!!
         public static void EnterMass(ref int[] Arr, int indexMass)
         {
             if (indexMass >= Arr.Length)
@@ -73,12 +78,13 @@ namespace DZ_43lesson
                     //}
         }
 
+
+
         /// <summary>
         /// 2. Автоматическое заполнение массива + вывод
         /// </summary>
         public static void AutoEnterMass(ref int[] Arr)
         {
-            //вывод в консоль задачу метода
             Console.WriteLine(". Автоматическое заполнение массива + вывод \n" +
                 "\n\tРезультаты:");
 
@@ -88,6 +94,8 @@ namespace DZ_43lesson
                 Console.WriteLine($"\t\tmyArr[{i}] = {Arr[i]}\t");
             }
         }
+
+
 
         /// <summary>
         /// 3. Вывод массива
