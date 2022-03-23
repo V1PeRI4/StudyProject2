@@ -10,172 +10,21 @@ namespace DZ_43lesson
     {
         static void Main(string[] args)
         {
-            /* Console.WriteLine("Суть программы: реализовать метод изменяющий кол-во элементов массива " +
-                "\n(метод должен иметь возможность увеличить или уменьшиить кол-во элементов массива)"); */
-
-            Line();
-            Line();
-            Line();
 
             //Ввод длинны массива
-            int massLenght;
-            while (true)
-            {
-                try
-                {
-                    Console.Write("\nВведите длину массива: ");
-                    massLenght = int.Parse(Console.ReadLine());
-                    break;
-                }
-                catch
-                {
-                    Console.WriteLine("\tНеверный формат!!! Введите еще раз");
-                }
-            }
+            int massLenght = ArrCreate.EnterMasslenght();
+            //int massLenght= 0; --------------------------------доделай
 
             //создание массива
             int[] myArr = new int[massLenght];
 
-            Line();
+            Menu.MainMenu(ref myArr);
 
-            Console.WriteLine("\nВыберите действие:" +
-                "\n1.\tЗаполнить массив" +
-                "\n2.\tВывести массив в консоль" +
-                "\n3.\tАвтоматическое заполнение массива и вывод его в консоль" +
-                "\n4.\tИзменить размер существующего массива" +
-                "\n5.\tДобавить элемент в массив" +
-                "\n6.\tУдалить элемент массива" +
-                "\nEscape.\tВыход");
-
-            //вызов метода меню
-            Menu(ref myArr, ref massLenght);
         }
 
 
-        //Реализация меню
-        static void Menu(ref int[] Arr, ref int massLenght)
-        {
-            Line();
-            Console.Write("\t\n");
-
-            ConsoleKey consoleKey = Console.ReadKey().Key;
-
-            Console.WriteLine(". Ваш выбор \n"); // вывод после ввода числа пользователем
-
-            bool working = true;
-            while (working)
-            {
-                switch (consoleKey)
-                {
-                    case ConsoleKey.D1:
-                        {
-                            EnterMass(ref Arr);
-                            Menu(ref Arr, ref massLenght);
-                            break;
-                        }
-                    case ConsoleKey.D2:
-                        {
-                            PrintMass(Arr);
-                            Menu(ref Arr, ref massLenght);
-                            break;
-                        }
-                    case ConsoleKey.D3:
-                        {
-                            AutoEnterMass(ref Arr);
-                            Menu(ref Arr, ref massLenght);
-                            break;
-                        }
-                    case ConsoleKey.D4:
-                        {
-                            Resize(ref Arr);
-                            Menu(ref Arr, ref massLenght);
-                            break;
-                        }
-                    case ConsoleKey.D5:
-                        {
-                            Insert(ref Arr);
-                            Menu(ref Arr, ref massLenght);
-                            break;
-                        }
-                    case ConsoleKey.D6:
-                        {
-                            RemoveEl(ref Arr);
-                            Menu(ref Arr, ref massLenght);
-                            break;
-                        }
-                    case ConsoleKey.Escape:
-                        {
-                            working = false;
-                            Console.WriteLine("ВЫХОД\n");
-                            break;
-                        }
-                    default:
-                        {
-                            Console.WriteLine("!!!! Error: Неизвестная команда");
-                            Menu(ref Arr, ref massLenght);
-                            break;
-                        }
-
-                }
-            }
-        }
 
 
-        /// <summary>
-        /// Ввод массива
-        /// </summary>
-        static void Line()
-        {
-            Console.WriteLine("-----------------");
-        }
-
-
-        /// <summary>
-        /// 1. Ввод массива
-        /// </summary>
-        static void EnterMass(ref int[] Arr)
-        {
-            for (int i = 0; i < Arr.Length; i++)
-            {
-                while (true)
-                {
-                    try
-                    {
-                        Console.Write($"Введите элемент под номером [{i}] : ");
-                        Arr[i] = int.Parse(Console.ReadLine());
-                        break;
-                    }
-                    catch
-                    {
-                        Console.WriteLine("\t!!!! Error: Неверный формат. Введите еще раз");
-                    }
-                }
-            }
-        }
-
-
-        /// <summary>
-        /// 2. Автоматическое заполнение массива + вывод
-        /// </summary>
-        static void AutoEnterMass(ref int[] Arr)
-        {
-            for (int i = 0; i < Arr.Length; i++)
-            {
-                Arr[i] = i;
-                Console.WriteLine($"myArr[{i}] = {Arr[i]}\t");
-            }
-        }
-
-        /// <summary>
-        /// 3. Вывод массива
-        /// </summary
-        static void PrintMass(int[] Arr)
-        {
-            Console.WriteLine("Введенный массив: ");
-
-            for (int i = 0; i < Arr.Length; i++)
-                Console.WriteLine($"myArr[{i}] = {Arr[i]}\t");
-        }
 
 
         /// <summary>
@@ -226,7 +75,6 @@ namespace DZ_43lesson
                 }
             }
             myArr = newArr;
-
         }
 
         
@@ -281,6 +129,7 @@ namespace DZ_43lesson
             }
             myArr = newArr;
         }
+
 
         /// <summary>
         /// 6. Удаление элемента

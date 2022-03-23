@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C90EE79B-0D2D-4623-BE1A-32B4B04366FA}</ProjectGuid>
+    <ProjectGuid>{B008F2B9-41B7-4DD6-B9F0-34D314755A75}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DZ_43lesson</RootNamespace>
-    <AssemblyName>DZ_43lesson</AssemblyName>
+    <RootNamespace>Mod_in_</RootNamespace>
+    <AssemblyName>Mod_in_</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,11 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArrCreate.cs" />
-    <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Separators.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
