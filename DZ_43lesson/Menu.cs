@@ -36,13 +36,11 @@ namespace DZ_43lesson
                 {
                     case ConsoleKey.D1:
                         {
-                            
                             CreateArrMenu(ref Arr);
                             break;
                         }
                     case ConsoleKey.D2:
                         {
-                            
                             ChangeArrMenu(ref Arr);
                             break;
                         }

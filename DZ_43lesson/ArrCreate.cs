@@ -15,7 +15,7 @@ namespace DZ_43lesson
         /// Метод используется в самом начале программы
         public static int EnterMasslenght()
         {
-            int massLenght= 0;
+            int massLenght;
 
             while (true)
             {
@@ -91,7 +91,7 @@ namespace DZ_43lesson
             for (int i = 0; i < Arr.Length; i++)
             {
                 Arr[i] = i;
-                Console.WriteLine($"\t\tmyArr[{i}] = {Arr[i]}\t");
+                Console.WriteLine($"\t\tmyArr[{i}] = {Arr[i]}");
             }
         }
 
@@ -106,7 +106,7 @@ namespace DZ_43lesson
                 "\tВведенный массив: ");
 
             for (int i = 0; i < Arr.Length; i++)
-                Console.WriteLine($"\t\tmyArr[{i}] = {Arr[i]}\t");
+                Console.WriteLine($"\t\tmyArr[{i}] = {Arr[i]}");
         }
 
     }
